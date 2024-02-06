@@ -1,13 +1,13 @@
-
 import datetime
 import json
 
+import QuoteConstants as qc
 
 class Quote():
     """Class  quotes methods
     """
     @staticmethod
-    def quoteToDict(quote,author,tags,borndate,city,desc):
+    def quoteToDict(quote,author,tags,borndate=qc.NOT_AVAILABLE,city=qc.NOT_AVAILABLE,desc=qc.NOT_AVAILABLE):
         """Transforms quote´s attributes into dict
 
         Args:
@@ -33,15 +33,16 @@ class Quote():
         }
 
     @staticmethod
-    def listToJson(list,exec_name):
+    def listToJson(list,exec_name,filename="",rename=False):
         """Transforms list into json
 
         Args:
             list ([]): quotes dictionary
             exec_name (str): execution time
         """
-        now = datetime.datetime.now()
-        filename = now.strftime("%Y%m%d-%H%M%S")
+        if rename == False:
+            now = datetime.datetime.now()
+            filename = now.strftime("%Y%m%d-%H%M%S")
         with open(f"{exec_name}/{filename}.json", "w",encoding="utf-8") as f:    
                 json.dump(list, f, indent=4)
         
