@@ -1,10 +1,7 @@
-
+import Business.ScrapBusiness as sb
 
 
 def ConsoleMenu():
-
-    print("Finished downloading!")
-    
     print("//////////////////////////////////////////////////")
     print("""
         (__)
@@ -33,10 +30,10 @@ def ConsoleMenu():
     
     
     while True:
-        print("Select action (1-5):")
+        print("Select action (1-3):")
         print("1 - Login")
-        # print("2 - Get bookfrom title")
-        # print("3 - Get all books")
+        print("2 - Delayed quotes")
+        print("3 - Scroll quotes")
         # print("4 - Get books filtering by price")
         # print("5 - Get books filtering by score")
         print("0 - Exit")
@@ -46,9 +43,21 @@ def ConsoleMenu():
             
             match inputNum:
                 case 1:
-                   pass
-            
+                    user=input("Username-> ")
+                    passW=input("Password-> ")
+                    sb.login(user,passW)
+                    print("----------------------------------------------")
+
+                case 2:
+                    sb.getAllDelayedQuotes()
+                    print("----------------------------------------------")
+
+                case 3:
+                    sb.getQuotesScroll()
+                    print("----------------------------------------------")
+
                 case 0:
                     break   
+
         except ValueError:
             print("Insert a number 1-5")       

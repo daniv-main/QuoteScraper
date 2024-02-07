@@ -1,13 +1,14 @@
 import datetime
 import json
 
-import QuoteConstants as qc
+import Business.QuoteConstants as QuoteConstants
+
 
 class Quote():
     """Class  quotes methods
     """
     @staticmethod
-    def quoteToDict(quote,author,tags,borndate=qc.NOT_AVAILABLE,city=qc.NOT_AVAILABLE,desc=qc.NOT_AVAILABLE):
+    def quoteToDict(quote,author,tags,borndate=QuoteConstants.NOT_AVAILABLE,city=QuoteConstants.NOT_AVAILABLE,desc=QuoteConstants.NOT_AVAILABLE):
         """Transforms quote´s attributes into dict
 
         Args:
